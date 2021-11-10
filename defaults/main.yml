@@ -1,0 +1,22 @@
+---
+mtail_exporter_listen: localhost
+mtail_exporter_port: 9197
+mtail_exporter_flags: "{{ lookup('template', 'flags') }}"
+mtail_exporter_extra_flags: {}
+mtail_exporter_programs_dir: /etc/mtail
+mtail_exporter_programs_files:
+  - mtail/*.mtail
+mtail_exporter_logs: []
+mtail_exporter_log_dir: ""
+
+mtail_exporter_git_org: google
+mtail_exporter_git_repo: mtail
+mtail_exporter_arch_map:
+  x86_64: x86_64
+  i386: i386
+  aarch64: arm64
+mtail_exporter_package: mtail_{{ _version }}_Linux_{{ exporter_arch_map[ansible_architecture] }}
+mtail_exporter_checksums_file: checksums.txt
+mtail_exporter_add_extract_dir: true
+mtail_exporter_groups:
+  - adm

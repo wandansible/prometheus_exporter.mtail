@@ -1,0 +1,36 @@
+---
+- name: Apply base prometheus exporter role
+  ansible.builtin.include_role:
+    name: prometheus_exporter
+    public: true
+  vars:
+    exporter_name: mtail_exporter
+
+- block:
+    - name: Create mtail log directory
+      ansible.builtin.file:
+        path: "{{ mtail_exporter_log_dir }}"
+        state: directory
+        owner: mtail-exporter
+        group: mtail-exporter
+        mode: u=rwx,g=rx,o=rx
+      when: mtail_exporter_log_dir != ""
+
+    - name: Create mtail programs directory
+      ansible.builtin.file:
+        path: "{{ mtail_exporter_programs_dir }}"
+        state: directory
+        owner: root
+        group: root
+        mode: u=rwx,g=rx,o=rx
+
+    - name: Install mtail programs
+      ansible.builtin.copy:
+        src: "{{ item }}"
+        dest: "{{ mtail_exporter_programs_dir }}/"
+        owner: root
+        group: root
+        mode: u=rw,g=r,o=r
+      with_fileglob: "{{ mtail_exporter_programs_files }}"
+      notify: restart {{ exporter_service }}
+  when: exporter_install | bool
