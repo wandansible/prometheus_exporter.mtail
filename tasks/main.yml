@@ -3,8 +3,6 @@
   ansible.builtin.include_role:
     name: prometheus_exporter
     public: true
-  vars:
-    exporter_name: mtail_exporter
 
 - block:
     - name: Create mtail log directory
