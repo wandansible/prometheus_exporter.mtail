@@ -1,0 +1,5 @@
+---
+- name: restart mtail_exporter
+  ansible.builtin.service:
+    name: mtail_exporter
+    state: restarted
