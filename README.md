@@ -3,6 +3,12 @@ Ansible role: Prometheus Exporter - mtail
 
 Install and configure mtail for Prometheus.
 
+Requirements
+------------
+
+This role depends on the [base prometheus exporter role](https://github.com/wandansible/prometheus_exporter).
+
+
 Role Variables
 --------------
 
