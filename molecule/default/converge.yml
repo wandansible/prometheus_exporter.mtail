@@ -5,3 +5,6 @@
     - name: "Include wandansible.prometheus_exporter.mtail"
       ansible.builtin.include_role:
         name: "wandansible.prometheus_exporter.mtail"
+      vars:
+        mtail_exporter_logs:
+          - "/var/log/lastlog"
