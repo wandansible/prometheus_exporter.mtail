@@ -17,16 +17,16 @@ ENTRY POINT: main - Install and configure mtail for Prometheus
 
 OPTIONS (= is mandatory):
 
-- mtail_exporter_add_extract_dir
-        If true, add an extraction directory for the exporter package
-        default: true
-        type: bool
-
 - mtail_exporter_arch_map
         Mapping of the possible values of ansible_architecture to the
         exporter package architectures
         default: null
         type: dict
+
+- mtail_exporter_archive_url
+        Override the URL for the exporter archive file
+        default: null
+        type: str
 
 - mtail_exporter_bin_dir
         Directory for the exporter executable
@@ -43,25 +43,31 @@ OPTIONS (= is mandatory):
         default: null
         type: str
 
+- mtail_exporter_checksum_file
+        Filename for the exporter package checksums
+        default: null
+        type: str
+
 - mtail_exporter_checksum_type
         The exporter package checksum type
         default: null
         type: str
 
-- mtail_exporter_checksums_file
-        Filename for the exporter package checksums
+- mtail_exporter_checksum_url
+        Override the URL for the exporter checksum file
         default: null
         type: str
 
-- mtail_exporter_checksums_url
-        URL for the exporter package checksums
-        default: null
-        type: str
+- mtail_exporter_clean_src_dir
+        Remove old downloaded archive files from exporter src
+        directory
+        default: true
+        type: bool
 
 - mtail_exporter_configure_caddy
         If true, configure caddy to add a TLS endpoint for the
         exporter
-        default: true
+        default: false
         type: bool
 
 - mtail_exporter_description
@@ -116,11 +122,6 @@ OPTIONS (= is mandatory):
         default: null
         type: dict
 
-- mtail_exporter_latest_url
-        URL for the latest version
-        default: null
-        type: str
-
 - mtail_exporter_listen
         Listen address and port
         default: localhost:9197
@@ -142,26 +143,6 @@ OPTIONS (= is mandatory):
         default: true
         type: bool
 
-- mtail_exporter_package
-        Filename of the exporter package (without extension)
-        default: null
-        type: str
-
-- mtail_exporter_package_dir
-        Directory the exporter package is extracted to
-        default: null
-        type: str
-
-- mtail_exporter_package_name
-        Name of the exporter package
-        default: null
-        type: str
-
-- mtail_exporter_package_url
-        URL for the exporter package
-        default: null
-        type: str
-
 - mtail_exporter_port
         Listen port
         default: 9197
@@ -169,7 +150,7 @@ OPTIONS (= is mandatory):
 
 - mtail_exporter_programs_dir
         Directory for mtail programs
-        default: /etc/mtail
+        default: /etc/prometheus/exporters/mtail
         type: str
 
 - mtail_exporter_programs_files
@@ -180,7 +161,7 @@ OPTIONS (= is mandatory):
 
 - mtail_exporter_register
         If true, register the exporter with the scrape servers
-        default: true
+        default: false
         type: bool
 
 - mtail_exporter_scrape_servers
@@ -196,14 +177,14 @@ OPTIONS (= is mandatory):
         type: str
 
 - mtail_exporter_src_dir
-        Directory for the exporter downloads
+        Directory for the downloaded exporter src archive
         default: null
         type: str
 
-- mtail_exporter_tag
-        Version git tag
-        default: null
-        type: str
+- mtail_exporter_strip_components
+        Strip NUMBER leading components from file names on extraction
+        default: 1
+        type: int
 
 - mtail_exporter_target
         Scrape target hostname and port
@@ -218,12 +199,6 @@ OPTIONS (= is mandatory):
 - mtail_exporter_version
         Version to install (use "latest" for the latest version)
         default: latest
-        type: str
-
-- mtail_exporter_version_regex
-        Regular expression for capturing the version from the latest
-        tag
-        default: null
         type: str
 ```
 
