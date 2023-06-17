@@ -23,10 +23,12 @@ OPTIONS (= is mandatory):
         default: null
         type: dict
 
-- mtail_exporter_archive_url
-        Override the URL for the exporter archive file
+- mtail_exporter_archive_urls
+        Override the list of exporter archive urls for different
+        platforms and architectures
         default: null
-        type: str
+        elements: str
+        type: list
 
 - mtail_exporter_bin_dir
         Directory for the exporter executable
@@ -35,17 +37,7 @@ OPTIONS (= is mandatory):
 
 - mtail_exporter_binary
         Filename for the exporter executable
-        default: null
-        type: str
-
-- mtail_exporter_checksum
-        The exporter package checksum
-        default: null
-        type: str
-
-- mtail_exporter_checksum_file
-        Filename for the exporter package checksums
-        default: null
+        default: mtail
         type: str
 
 - mtail_exporter_checksum_type
@@ -55,6 +47,11 @@ OPTIONS (= is mandatory):
 
 - mtail_exporter_checksum_url
         Override the URL for the exporter checksum file
+        default: null
+        type: str
+
+- mtail_exporter_checksums
+        Override exporter archive checksums file contents
         default: null
         type: str
 
@@ -91,14 +88,19 @@ OPTIONS (= is mandatory):
         default: null
         type: raw
 
-- mtail_exporter_git_org
-        Name of organisation for exporter git repository
-        default: null
+- mtail_exporter_github_checksum_filename
+        Filename for the exporter package checksums file on github
+        default: checksums.txt
         type: str
 
-- mtail_exporter_git_repo
-        Name of exporter git repository
-        default: null
+- mtail_exporter_github_org
+        Name of organisation for exporter github repository
+        default: google
+        type: str
+
+- mtail_exporter_github_repo
+        Name of exporter github repository
+        default: mtail
         type: str
 
 - mtail_exporter_group
@@ -111,6 +113,11 @@ OPTIONS (= is mandatory):
         default: [adm]
         elements: str
         type: list
+
+- mtail_exporter_handler
+        Name of the exporter handler to notify
+        default: null
+        type: str
 
 - mtail_exporter_install
         If true, install exporter
@@ -183,7 +190,7 @@ OPTIONS (= is mandatory):
 
 - mtail_exporter_strip_components
         Strip NUMBER leading components from file names on extraction
-        default: 1
+        default: 0
         type: int
 
 - mtail_exporter_target
