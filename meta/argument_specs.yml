@@ -102,24 +102,33 @@ argument_specs:
       mtail_exporter_strip_components:
         description: Strip NUMBER leading components from file names on extraction
         type: int
-        default: 1
+        default: 0
 
       mtail_exporter_clean_src_dir:
         description: Remove old downloaded archive files from exporter src directory
         type: bool
         default: true
 
-      mtail_exporter_git_org:
-        description: Name of organisation for exporter git repository
+      mtail_exporter_github_org:
+        description: Name of organisation for exporter github repository
         type: str
+        default: google
 
-      mtail_exporter_git_repo:
-        description: Name of exporter git repository
+      mtail_exporter_github_repo:
+        description: Name of exporter github repository
         type: str
+        default: mtail
 
-      mtail_exporter_archive_url:
-        description: Override the URL for the exporter archive file
+      mtail_exporter_github_checksum_filename:
+        description: Filename for the exporter package checksums file on github
         type: str
+        default: checksums.txt
+
+      mtail_exporter_archive_urls:
+        description: |
+          Override the list of exporter archive urls for different platforms and architectures
+        type: list
+        elements: str
 
       mtail_exporter_version:
         description: Version to install (use "latest" for the latest version)
@@ -135,25 +144,26 @@ argument_specs:
       mtail_exporter_binary:
         description: Filename for the exporter executable
         type: str
+        default: mtail
 
       mtail_exporter_checksum_url:
         description: Override the URL for the exporter checksum file
-        type: str
-
-      mtail_exporter_checksum_file:
-        description: Filename for the exporter package checksums
         type: str
 
       mtail_exporter_checksum_type:
         description: The exporter package checksum type
         type: str
 
-      mtail_exporter_checksum:
-        description: The exporter package checksum
+      mtail_exporter_checksums:
+        description: Override exporter archive checksums file contents
         type: str
 
       mtail_exporter_service:
         description: Name of the exporter systemd service
+        type: str
+
+      mtail_exporter_handler:
+        description: Name of the exporter handler to notify
         type: str
 
       mtail_exporter_description:
