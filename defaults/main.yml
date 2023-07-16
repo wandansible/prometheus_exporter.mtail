@@ -12,10 +12,6 @@ mtail_exporter_log_dir: ""
 mtail_exporter_github_org: google
 mtail_exporter_github_repo: mtail
 mtail_exporter_binary: mtail
-mtail_exporter_arch_map:
-  x86_64: x86_64
-  i386: i386
-  aarch64: arm64
 mtail_exporter_strip_components: 0
 mtail_exporter_github_checksum_filename: checksums.txt
 mtail_exporter_groups:
