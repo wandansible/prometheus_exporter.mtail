@@ -1,19 +1,19 @@
 #jinja2: trim_blocks: "false", lstrip_blocks: "true"
-{% for k,v in mtail_exporter_extra_flags | dictsort %}
+{% for k, v in mtail_exporter_extra_flags | dictsort %}
   {% if v == "" %}
--{{ k }} \
+-{{ k }}
   {% else %}
--{{ k }} {{ v | quote }} \
+-{{ k }} "{{ v }}"
   {% endif %}
 {% endfor %}
 {% if mtail_exporter_log_dir == "" %}
--logtostderr \
+-logtostderr
 {% else %}
--log_dir "{{ mtail_exporter_log_dir }}" \
+-log_dir "{{ mtail_exporter_log_dir }}"
 {% endif %}
 {% for _file in mtail_exporter_logs %}
--logs "{{ _file }}" \
+-logs "{{ _file }}"
 {% endfor %}
--progs "{{ mtail_exporter_programs_dir }}" \
--address "{{ mtail_exporter_listen }}" \
+-progs "{{ mtail_exporter_programs_dir }}"
+-address "{{ mtail_exporter_listen }}"
 -port "{{ mtail_exporter_port }}"
