@@ -162,6 +162,10 @@ argument_specs:
         description: Name of the exporter systemd service
         type: str
 
+      mtail_exporter_service_unit_file:
+        description: Contents of the systemd unit file for the exporter
+        type: str
+
       mtail_exporter_handler:
         description: Name of the exporter handler to notify
         type: str
@@ -171,7 +175,7 @@ argument_specs:
         type: str
 
       mtail_exporter_flags:
-        description: Contents or list of flags to run exporter with
+        description: List of flags to run exporter with, as string or list
         type: raw
 
       mtail_exporter_target:
