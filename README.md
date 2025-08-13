@@ -77,7 +77,7 @@ Options (= indicates it is required):
           type: str
 
 - mtail_exporter_github_org  Name of organisation for exporter github repository
-          default: google
+          default: jaqx0r
           type: str
 
 - mtail_exporter_github_repo  Name of exporter github repository
