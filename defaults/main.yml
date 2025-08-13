@@ -9,7 +9,7 @@ mtail_exporter_programs_files:
 mtail_exporter_logs: []
 mtail_exporter_log_dir: ""
 
-mtail_exporter_github_org: google
+mtail_exporter_github_org: jaqx0r
 mtail_exporter_github_repo: mtail
 mtail_exporter_binary: mtail
 mtail_exporter_strip_components: 0
