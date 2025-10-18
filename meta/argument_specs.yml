@@ -119,6 +119,11 @@ argument_specs:
         type: str
         default: mtail
 
+      mtail_exporter_github_token:
+        description: Optional bearer token to use to authenticate with api.github.com
+        type: str
+        default: ""
+
       mtail_exporter_github_checksum_filename:
         description: Filename for the exporter package checksums file on github
         type: str

@@ -6,5 +6,7 @@
       ansible.builtin.include_role:
         name: "wandansible.prometheus_exporter.mtail"
       vars:
+        mtail_exporter_github_token: "{{ lookup('env', 'GITHUB_TOKEN') }}"
+
         mtail_exporter_logs:
           - "/var/log/lastlog"

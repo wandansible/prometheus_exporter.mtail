@@ -17,13 +17,15 @@ ENTRY POINT: *main* - Install and configure mtail for Prometheus
 
 Options (= indicates it is required):
 
-- mtail_exporter_arch_map  Mapping of the possible values of ansible_architecture to the
-                            exporter package architectures
+- mtail_exporter_arch_map  Mapping of the possible values of
+                            ansible_architecture to the exporter
+                            package architectures
           default: null
           type: dict
 
-- mtail_exporter_archive_urls  Override the list of exporter archive urls for different platforms
-                                and architectures
+- mtail_exporter_archive_urls  Override the list of exporter archive
+                                urls for different platforms and
+                                architectures
           default: null
           elements: str
           type: list
@@ -40,23 +42,28 @@ Options (= indicates it is required):
           default: null
           type: str
 
-- mtail_exporter_checksum_url  Override the URL for the exporter checksum file
+- mtail_exporter_checksum_url  Override the URL for the exporter
+                                checksum file
           default: null
           type: str
 
-- mtail_exporter_checksums  Override exporter archive checksums file contents
+- mtail_exporter_checksums  Override exporter archive checksums file
+                             contents
           default: null
           type: str
 
-- mtail_exporter_clean_src_dir  Remove old downloaded archive files from exporter src directory
+- mtail_exporter_clean_src_dir  Remove old downloaded archive files
+                                 from exporter src directory
           default: true
           type: bool
 
-- mtail_exporter_configure_caddy  If true, configure caddy to add a TLS endpoint for the exporter
+- mtail_exporter_configure_caddy  If true, configure caddy to add a
+                                   TLS endpoint for the exporter
           default: false
           type: bool
 
-- mtail_exporter_description  Description for the exporter systemd service
+- mtail_exporter_description  Description for the exporter systemd
+                               service
           default: null
           type: str
 
@@ -64,24 +71,34 @@ Options (= indicates it is required):
           default: null
           type: dict
 
-- mtail_exporter_file_sd_dir  Directory, on scrape servers, for the file service discovery target
+- mtail_exporter_file_sd_dir  Directory, on scrape servers, for the
+                               file service discovery target
           default: /etc/prometheus/file_sd/mtail_exporter
           type: str
 
-- mtail_exporter_flags  List of flags to run exporter with, as string or list
+- mtail_exporter_flags  List of flags to run exporter with, as string
+                         or list
           default: null
           type: raw
 
-- mtail_exporter_github_checksum_filename  Filename for the exporter package checksums file on github
+- mtail_exporter_github_checksum_filename  Filename for the exporter
+                                            package checksums file on
+                                            github
           default: checksums.txt
           type: str
 
-- mtail_exporter_github_org  Name of organisation for exporter github repository
+- mtail_exporter_github_org  Name of organisation for exporter github
+                              repository
           default: jaqx0r
           type: str
 
 - mtail_exporter_github_repo  Name of exporter github repository
           default: mtail
+          type: str
+
+- mtail_exporter_github_token  Optional bearer token to use to
+                                authenticate with api.github.com
+          default: ''
           type: str
 
 - mtail_exporter_group  Name of the exporter unix group
@@ -101,7 +118,8 @@ Options (= indicates it is required):
           default: true
           type: bool
 
-- mtail_exporter_labels  Labels added to exporter metrics, overrides prometheus_labels
+- mtail_exporter_labels  Labels added to exporter metrics, overrides
+                          prometheus_labels
           default: null
           type: dict
 
@@ -113,12 +131,14 @@ Options (= indicates it is required):
           default: null
           type: str
 
-- mtail_exporter_logs  List of fileglobs for log files to be evaluated by mtail
+- mtail_exporter_logs  List of fileglobs for log files to be
+                        evaluated by mtail
           default: null
           elements: str
           type: list
 
-- mtail_exporter_manage_user  If true, add exporter unix user and group
+- mtail_exporter_manage_user  If true, add exporter unix user and
+                               group
           default: true
           type: bool
 
@@ -130,17 +150,20 @@ Options (= indicates it is required):
           default: /etc/prometheus/exporters/mtail
           type: str
 
-- mtail_exporter_programs_files  List of fileglobs for program files to copy to the host
+- mtail_exporter_programs_files  List of fileglobs for program files
+                                  to copy to the host
           default: [mtail/*.mtail]
           elements: str
           type: list
 
-- mtail_exporter_register  If true, register the exporter with the scrape servers
+- mtail_exporter_register  If true, register the exporter with the
+                            scrape servers
           default: false
           type: bool
 
-- mtail_exporter_scrape_servers  List of servers that scrape exporter metrics from the host,
-                                  overrides prometheus_scrape_servers
+- mtail_exporter_scrape_servers  List of servers that scrape exporter
+                                  metrics from the host, overrides
+                                  prometheus_scrape_servers
           default: null
           elements: str
           type: list
@@ -149,15 +172,18 @@ Options (= indicates it is required):
           default: null
           type: str
 
-- mtail_exporter_service_unit_file  Contents of the systemd unit file for the exporter
+- mtail_exporter_service_unit_file  Contents of the systemd unit file
+                                     for the exporter
           default: null
           type: str
 
-- mtail_exporter_src_dir  Directory for the downloaded exporter src archive
+- mtail_exporter_src_dir  Directory for the downloaded exporter src
+                           archive
           default: null
           type: str
 
-- mtail_exporter_strip_components  Strip NUMBER leading components from file names on extraction
+- mtail_exporter_strip_components  Strip NUMBER leading components
+                                    from file names on extraction
           default: 0
           type: int
 
@@ -169,7 +195,8 @@ Options (= indicates it is required):
           default: null
           type: str
 
-- mtail_exporter_version  Version to install (use "latest" for the latest version)
+- mtail_exporter_version  Version to install (use "latest" for the
+                           latest version)
           default: latest
           type: str
 ```
