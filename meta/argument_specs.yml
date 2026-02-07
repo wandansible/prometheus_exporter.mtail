@@ -129,6 +129,11 @@ argument_specs:
         type: str
         default: checksums.txt
 
+      mtail_exporter_archive_extension:
+        description: File extension for the exporter archive
+        type: str
+        default: tar.gz
+
       mtail_exporter_archive_urls:
         description: |
           Override the list of exporter archive urls for different platforms and architectures
