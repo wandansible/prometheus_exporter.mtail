@@ -23,6 +23,11 @@ Options (= indicates it is required):
           default: null
           type: dict
 
+- mtail_exporter_archive_extension  File extension for the exporter
+                                     archive
+          default: tar.gz
+          type: str
+
 - mtail_exporter_archive_urls  Override the list of exporter archive
                                 urls for different platforms and
                                 architectures
