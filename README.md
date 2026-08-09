@@ -43,6 +43,11 @@ Options (= indicates it is required):
           default: mtail
           type: str
 
+- mtail_exporter_checksum_filename  Filename for the exporter package
+                                     checksums file on github
+          default: checksums.txt
+          type: str
+
 - mtail_exporter_checksum_type  The exporter package checksum type
           default: null
           type: str
@@ -85,12 +90,6 @@ Options (= indicates it is required):
                          or list
           default: null
           type: raw
-
-- mtail_exporter_github_checksum_filename  Filename for the exporter
-                                            package checksums file on
-                                            github
-          default: checksums.txt
-          type: str
 
 - mtail_exporter_github_org  Name of organisation for exporter github
                               repository
